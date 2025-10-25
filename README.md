@@ -13,7 +13,7 @@ This project demonstrates a complete DevOps workflow for a Streamlit web applica
 
 ## 🌐 About Web Application
 
-This website is a modern Bus Booking System (BusBooker Pro) that allows users to search for bus routes, select seats, and complete payments. The platform features responsive design, real-time seat selection, and secure payment processing. Users can view available buses, select preferred seats, and complete bookings with an intuitive interface.
+This website is a modern calculator app that allows to perform compuatations. 
 
 ## ✨ Features
 
@@ -30,14 +30,14 @@ This website is a modern Bus Booking System (BusBooker Pro) that allows users to
 ┌─────────────┐     ┌──────────────┐     ┌─────────────────────────┐
 │   GitHub    │────▶│   Jenkins    │────▶│ Docker Hub Registry     │
 │ Repository  │     │   Pipeline   │     │ sairamreddy77/         │
-└─────────────┘     └──────────────┘     │ devops-assignment-2-app │
+└─────────────┘     └──────────────┘     │ my-calculator-app │
                            │              └─────────────────────────┘
                            │                      │
                            │                      │
                            ▼                      ▼
                     ┌──────────────┐     ┌─────────────────────────┐
                     │ Kubernetes   │◀────│   Docker Image          │
-                    │   Cluster    │     │ devops-assignment-2-app │
+                    │   Cluster    │     │ my-calculator-app │
                     └──────────────┘     └─────────────────────────┘
                            │
                            ▼
@@ -63,26 +63,11 @@ Before you begin, ensure you have the following installed:
 ```
 DevOps-Assignment-2/
 │
-├── app.py                      # Main Streamlit application
+├── calc.py                      # Main Streamlit application
 ├── requirements.txt            # Python dependencies
 ├── Dockerfile                  # Docker image configuration
 ├── Jenkinsfile                 # Jenkins pipeline definition
 ├── README.md                   # Project documentation
-├── .gitignore                  # Git ignore rules
-├── .dockerignore               # Docker ignore rules
-│
-├── templates/                  # Streamlit HTML templates
-│   ├── index.html             # Homepage template
-│   ├── route_search.html      # Route search page
-│   ├── seat_selection.html    # Seat selection page
-│   └── payment_processing.html # Payment processing page
-│
-├── static/                     # Static assets
-│   ├── css/
-│   │   ├── main.css           # Main stylesheet
-│   │   └── tailwind.css       # Tailwind CSS
-│   └── js/
-│       └── script.js          # Common JavaScript
 │
 ├── k8s/                        # Kubernetes manifests
 │   ├── deployment.yaml        # K8s deployment configuration
@@ -104,8 +89,8 @@ DevOps-Assignment-2/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/sairamreddy77/devops-assignment_2.git
-cd DevOps-Assignment-2
+git clone https://github.com/sairamreddy77/devops_assignment_2.git
+cd devops_assignment_2
 ```
 
 ### 2. Install Dependencies
@@ -137,33 +122,33 @@ http://localhost:8000
 ### Build Docker Image
 
 ```bash
-docker build -t devops-assignment-2-app .
+docker build -t my-calculator-app .
 ```
 
 ### Run Docker Container
 
 ```bash
-docker run -d -p 8000:8000 --name devops-app devops-assignment-2-app
+docker run -d -p 8000:8000 --name calc my-calculator-app
 ```
 
 ### Stop and Remove Container
 
 ```bash
-docker stop devops-app
-docker rm devops-app
+docker stop calc
+docker rm calc
 ```
 
 ### Push to Docker Hub
 
 ```bash
 # Tag the image with your Docker Hub username
-docker tag devops-assignment-2-app shivaprasad149/devops-assignment-2-app:latest
+docker tag my-calculator-app sairamreddy77/my-calculator-app:latest
 
 # Login to Docker Hub
 docker login
 
 # Push the image
-docker push shivaprasad149/devops-assignment-2-app:latest
+docker push sairamreddy77/my-calculator-app:latest
 ```
 
 ## ☸️ Kubernetes Deployment
@@ -205,10 +190,10 @@ kubectl describe pod <pod-name>
 
 ```bash
 # For Minikube
-minikube service devops-assignment-2-service
+minikube service calculator-service
 
 # Or get the service URL
-minikube service devops-assignment-2-service --url
+minikube service calculator-service --url
 ```
 
 ### Scale the Application
@@ -252,7 +237,7 @@ The Jenkins pipeline automates the entire deployment process with the following 
     -   Add **Docker Hub Credentials**:
         -   **Kind**: Username with Password
         -   **ID**: `docker-hub-cred`
-        -   **Username**: `shivaprasad149`
+        -   **Username**: `sairamreddy77`
         -   **Password**: Your Docker Hub password/token
     -   Add **Kubernetes config**:
         -   **Kind**: Secret file
@@ -273,34 +258,19 @@ The Jenkins pipeline automates the entire deployment process with the following 
 
 ```groovy
 DOCKERHUB_CREDENTIALS = credentials('docker-hub-cred')
-DOCKER_IMAGE = 'shivaprasad149/devops-assignment-2-app'
+DOCKER_IMAGE = 'sairamreddy77/my-calculator-app'
 ```
 
 ## ⚙️ Configuration
 
 ### Application Configuration
 
-The Streamlit application runs on port `8000` by default. You can modify this in:
+The Streamlit application runs on port `8501` by default. You can modify this in:
 
 - `Dockerfile`: `EXPOSE` directive
 - `k8s/deployment.yaml`: `containerPort`
 - `k8s/service.yaml`: `targetPort`
 
-### Kubernetes Resources
-
-Current resource allocation per pod:
-
-```yaml
-resources:
-  requests:
-    memory: "128Mi"
-    cpu: "100m"
-  limits:
-    memory: "256Mi"
-    cpu: "200m"
-```
-
-Modify these values in `k8s/deployment.yaml` based on your requirements.
 
 ### Replica Count
 
