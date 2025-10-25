@@ -302,8 +302,8 @@ _Complete CI/CD pipeline with all stages successful_
 
 ### Docker Hub Repository
 
-![Docker Hub](screenshots/docker_hub_image.png)
-_Docker image successfully pushed to Docker Hub registry under shivaprasad149 account_
+![Docker Hub](screenshots/doker_hub_image.png)
+_Docker image successfully pushed to Docker Hub registry under sairamreddy77 account_
 
 ### Kubernetes Deployment
 
@@ -313,7 +313,7 @@ _Application running in Kubernetes cluster with multiple replicas_
 ### Application Interface
 
 ![Application](screenshots/application.png)
-_BusBooker Pro running in browser_
+_calculator running in browser_
 
 
 ## 👤 Author
