@@ -341,7 +341,7 @@ _Complete CI/CD pipeline with all stages successful_
 
 ### Docker Hub Repository
 
-![Docker Hub](screenshots/dockerhub-image.png)
+![Docker Hub](screenshots/.png)
 _Docker image successfully pushed to Docker Hub registry under shivaprasad149 account_
 
 ### Kubernetes Deployment
@@ -354,112 +354,11 @@ _Application running in Kubernetes cluster with multiple replicas_
 ![Application](screenshots/application-interface.png)
 _BusBooker Pro running in browser_
 
-## 🧪 Testing
-
-### Manual Testing
-
-```bash
-# Test the running application
-curl http://localhost:8000
-
-# Health check
-curl -f http://localhost:8000/health || echo "Application is down"
-```
-
-### Automated Testing (Jenkins)
-
-The Jenkins pipeline includes automated testing:
-
-```bash
-curl -f http://localhost:8001/health || exit 1
-```
-
-## 🔧 Troubleshooting
-
-### Docker Issues
-
-**Problem**: Container fails to start
-
-```bash
-# Check container logs
-docker logs devops-app
-
-# Inspect container
-docker inspect devops-app
-```
-
-**Problem**: Port already in use
-
-```bash
-# Find process using the port
-lsof -i :8000
-
-# Kill the process or use a different port
-```
-
-### Kubernetes Issues
-
-**Problem**: Pods not starting
-
-```bash
-# Check pod status
-kubectl get pods
-
-# View pod logs
-kubectl logs <pod-name>
-
-# Describe pod for events
-kubectl describe pod <pod-name>
-```
-
-**Problem**: Service not accessible
-
-```bash
-# Check service endpoints
-kubectl get endpoints
-
-# Verify service configuration
-kubectl describe service devops-assignment-2-service
-```
-
-**Problem**: ImagePullBackOff error
-
-```bash
-# Ensure Docker Hub image is public or
-# Create imagePullSecret for private images
-kubectl create secret docker-registry regcred \
-  --docker-server=https://index.docker.io/v1/ \
-  --docker-username=shivaprasad149 \
-  --docker-password=<password> \
-  --docker-email=<email>
-```
-
-### Jenkins Issues
-
-**Problem**: Docker command not found
-
-- Ensure Docker is installed on Jenkins agent
-- Update Jenkinsfile with correct Docker path
-
-**Problem**: kubectl command not found
-
-- Install kubectl on Jenkins agent
-- Update Jenkinsfile with correct kubectl path
 
 ## 👤 Author
 
-**Shiva Prasad**
+**Sairam Reddy**
 
-- GitHub: [https://github.com/ShivaPrasad149](https://github.com/ShivaPrasad149)
-- Docker Hub: [https://hub.docker.com/u/shivaprasad149](https://hub.docker.com/u/shivaprasad149)
+- GitHub: [https://github.com/sairamreddy77](https://github.com/sairamreddy77)
+- Docker Hub: [https://hub.docker.com/u/sairamreddy77](https://hub.docker.com/u/sairamreddy77)
 
-## 🙏 Acknowledgments
-
-- Flask framework for the web application
-- Docker for containerization
-- Kubernetes for orchestration
-- Jenkins for CI/CD automation
-
-> **⭐ If you find this project helpful, please give it a star!**
-
-**Happy DevOps Journey! 🚀**
