@@ -1,17 +1,10 @@
-# DevOps Assignment 2 - Flask Application with CI/CD Pipeline
+# DevOps Assignment 2 - Streamlit Application with CI/CD Pipeline
 
-![Python](https://img.shields.io/badge/Python-3.9-blue)
-![Flask](https://img.shields.io/badge/Flask-Latest-green)
-![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
-![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-red?logo=jenkins&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-326CE5)
-![CI/CD](https://img.shields.io/badge/Jenkins-Pipeline-red)
-
-A production-ready Flask web application with complete CI/CD pipeline using Jenkins, Docker, and Kubernetes deployment.
+A production-ready Streamlit web application with complete CI/CD pipeline using Jenkins, Docker, and Kubernetes deployment.
 
 ## 🎯 Overview
 
-This project demonstrates a complete DevOps workflow for a Flask web application, including:
+This project demonstrates a complete DevOps workflow for a Streamlit web application, including:
 
 - Containerized application using Docker
 - Automated CI/CD pipeline with Jenkins
@@ -24,13 +17,11 @@ This website is a modern Bus Booking System (BusBooker Pro) that allows users to
 
 ## ✨ Features
 
-- **Flask Web Application**: Lightweight Python web server
+- **Streamlit Web Application**: Lightweight Python web server
 - **Docker Containerization**: Multi-stage Docker builds for optimized images
 - **Kubernetes Deployment**: Production-ready K8s manifests with 2 replicas
 - **Jenkins Pipeline**: Automated build, test, and deployment
 - **Docker Hub Integration**: Automated image push to Docker Hub registry
-- **Health Checks**: Automated application testing in CI/CD pipeline
-- **Resource Management**: Kubernetes resource limits and requests configured
 - **Load Balancing**: Kubernetes LoadBalancer service for external access
 
 ## 🏗️ Architecture
@@ -38,7 +29,7 @@ This website is a modern Bus Booking System (BusBooker Pro) that allows users to
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────────────────┐
 │   GitHub    │────▶│   Jenkins    │────▶│ Docker Hub Registry     │
-│ Repository  │     │   Pipeline   │     │ shivaprasad149/         │
+│ Repository  │     │   Pipeline   │     │ sairamreddy77/         │
 └─────────────┘     └──────────────┘     │ devops-assignment-2-app │
                            │              └─────────────────────────┘
                            │                      │
@@ -72,7 +63,7 @@ Before you begin, ensure you have the following installed:
 ```
 DevOps-Assignment-2/
 │
-├── app.py                      # Main Flask application
+├── app.py                      # Main Streamlit application
 ├── requirements.txt            # Python dependencies
 ├── Dockerfile                  # Docker image configuration
 ├── Jenkinsfile                 # Jenkins pipeline definition
@@ -80,7 +71,7 @@ DevOps-Assignment-2/
 ├── .gitignore                  # Git ignore rules
 ├── .dockerignore               # Docker ignore rules
 │
-├── templates/                  # Flask HTML templates
+├── templates/                  # Streamlit HTML templates
 │   ├── index.html             # Homepage template
 │   ├── route_search.html      # Route search page
 │   ├── seat_selection.html    # Seat selection page
@@ -113,7 +104,7 @@ DevOps-Assignment-2/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ShivaPrasad149/DevOps-Assignment-2.git
+git clone https://github.com/sairamreddy77/devops-assignment_2.git
 cd DevOps-Assignment-2
 ```
 
@@ -126,7 +117,7 @@ pip install -r requirements.txt
 ### 3. Run the Application
 
 ```bash
-# Development server (Flask)
+# Development server (Streamlit)
 python app.py
 
 # Production server (Gunicorn)
@@ -289,7 +280,7 @@ DOCKER_IMAGE = 'shivaprasad149/devops-assignment-2-app'
 
 ### Application Configuration
 
-The Flask application runs on port `8000` by default. You can modify this in:
+The Streamlit application runs on port `8000` by default. You can modify this in:
 
 - `Dockerfile`: `EXPOSE` directive
 - `k8s/deployment.yaml`: `containerPort`
@@ -326,12 +317,12 @@ spec:
 
 ### Github Repository
 
-![Github Repo](screenshots/github-repo.png)
+![Github Repo](screenshots/git_repo.png)
 _Pushed Complete Project to Github Repository_
 
 ### Jenkins Pipeline Configure
 
-![Jenkins Pipeline Configure](screenshots/jenkins-pipeline-configure.png)
+![Jenkins Pipeline Configure](screenshots/jenkins_creation.png)
 _Full Configuration of Jenkins Pipeline before Running the `build Now`_
 
 ### Jenkins Pipeline Success
@@ -341,17 +332,17 @@ _Complete CI/CD pipeline with all stages successful_
 
 ### Docker Hub Repository
 
-![Docker Hub](screenshots/.png)
+![Docker Hub](screenshots/docker_hub_image.png)
 _Docker image successfully pushed to Docker Hub registry under shivaprasad149 account_
 
 ### Kubernetes Deployment
 
-![Kubernetes Pods](screenshots/kubernetes-pods.png)
+![Kubernetes Pods](screenshots/kubernetes.png)
 _Application running in Kubernetes cluster with multiple replicas_
 
 ### Application Interface
 
-![Application](screenshots/application-interface.png)
+![Application](screenshots/application.png)
 _BusBooker Pro running in browser_
 
 
