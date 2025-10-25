@@ -1,0 +1,19 @@
+# service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  # A name for your service
+  name: calculator-service
+spec:
+  # This makes the service accessible from the internet
+  # (Requires a cloud provider like GKE, EKS, AKS)
+  # For local testing (Minikube/Docker Desktop), you can use "NodePort"
+  type: LoadBalancer
+  ports:
+    - port: 80
+      # The port on the container to send traffic to
+      targetPort: 8501
+  selector:
+    # This MUST match the 'app' label in your deployment.yaml
+    app: calc

@@ -1,0 +1,28 @@
+# deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # A name for your deployment
+  name: calculator-deployment
+spec:
+  # Run 2 copies (pods) of your app
+  replicas: 2
+  selector:
+    # This label connects the Deployment to the Service
+    matchLabels:
+      app: calc
+  template:
+    metadata:
+      labels:
+        # The label for the pods
+        app: calc
+    spec:
+      containers:
+      - name: calculator-app
+        # --- IMPORTANT ---
+        # Replace YOUR_USERNAME with your Docker Hub username
+        image: sairamreddy77/my-calculator-app:latest
+        ports:
+        # The port your Streamlit app runs on (from the Dockerfile)
+        - containerPort: 8501
