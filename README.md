@@ -89,8 +89,8 @@ DevOps-Assignment-2/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/sairamreddy77/devops_assignment_2.git
-cd devops_assignment_2
+git clone https://github.com/sairamreddy77/Devops_assignment_2.git
+cd Devops_assignment_2
 ```
 
 ### 2. Install Dependencies
@@ -200,7 +200,7 @@ minikube service calculator-service --url
 
 ```bash
 # Scale to 3 replicas
-kubectl scale deployment devops-assignment-2-app --replicas=3
+kubectl scale deployment calculator-app --replicas=3
 
 # Verify scaling
 kubectl get pods
